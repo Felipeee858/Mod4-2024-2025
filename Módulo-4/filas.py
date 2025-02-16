@@ -6,7 +6,7 @@ import numpy as np
 
 NR_MAX=10
 
-def Entrada(fila,nr_total):
+def Entrada(fila):
     """Adicionar um nome ao final da fila de espera"""
     #procurar ultimo lugar da fila
     encontrou=False
@@ -25,14 +25,32 @@ def Entrada(fila,nr_total):
     print(f"A sua posição na fila de espera é {posiçao+1}")
 def Saída(fila):
     """Retirar o primeiro nome da fila de espera"""
-    fila_procurar=input("Introduza ")
-    for k in range(fila):
-        fila[k]=fila[k-1]
+    #verificar se a fila está vazia
+    if fila[0]=="":
+        print("Não tem ninguém a fila de espera")
+        return
+    #retirar o primeiro nome da fila
+    print(f"O cliente como nome {fila[0]} pode entrar")
+    #avançar os restantes nomes da fila uma posição    
+    for i in range(NR_MAX-1):
+        fila[i]=fila[i+1]
+        fila[NR_MAX-1]="" #para limpar a ultima posição do array
 
     
 def Consultar(fila):
     """Listar os nomes na fila de espera"""
-    pass
+    #Verificar se a fila está vazia
+    if fila[0]=="":
+        print("Não tem ninguém para consultar")
+        Fila_Cheia=False
+        return
+    #listar os nome das pessoas em espera
+    Fila_Cheia=True
+    for posicao in range(NR_MAX):
+        print(f"{posicao+1}º - {fila[posicao]}")
+    #verificar se a fila está cheia
+    if Fila_Cheia == True:
+        print("fila de espera está cheia")
 
 
 def main():
@@ -43,7 +61,7 @@ def main():
         fila[i]=""
     op = 0
     while op != 4:
-        op=input("1.Entrada\n2.Saída\n3.Consultar\n4.Terminar")
+        op=input("1.Entrada\n2.Saída\n3.Consultar\n4.Terminar\n")
         if op =="1":
             Entrada(fila,nr_total)
         elif op =="2":
