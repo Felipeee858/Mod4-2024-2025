@@ -9,8 +9,7 @@ for i in range(NR_TEMPERATURAS):
 #calcular média
 total=0
 for i in range(NR_TEMPERATURAS):
-    temperaturas[i]=temperaturas[i]+total
-
+    total+=temperaturas[i]
 Média=total/NR_TEMPERATURAS
 print(f"A temperatura média anual foi de {Média}")
 #mostrar meses com temperatura superior a média´

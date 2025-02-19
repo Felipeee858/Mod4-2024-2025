@@ -16,7 +16,7 @@ print(texto)
 print(texto.isdigit()) #devolve verdadeiro se todos as letras sem digitos(numeros)
 frase="Olá mundo, o computador é uma torradeira"
 palavras = frase.split(" ") #devolve uma lista com as partes da string sepadaras por carater indicado " "
-print(palavras)
+print(palavras[4])
 print(len(palavras))
 print(palavras[0])
 posicao= frase.index("") #devolve a posiçao da string mas se não existir da erro
